@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+                    
+                   <div class="form-grup">
+                    <input 
+                     type="text"
+                     class="form-control"
+                     name="name"
+                     placeholder="Ingrese Nombre y Apellido"
+                     [(ngModel)]="employeeService.selectedEmployee.name"
+                      >
+                   </div>
+
+                   <div class="form-grup">
+                    <input 
+                    type="text" 
+                    name="position"
+                    class="form-control" 
+                    placeholder="Ingrese su Puesto de trabajo "
+                    [(ngModel)]="employeeService.selectedEmployee.position"
+                      
+                    >
+                   </div>
+
+                   <div class="form-grup">
+                    <input 
+                    type="text" 
+                    name="office"
+                    class="form-control" 
+                    placeholder="Ingrese la ubicacion de su oficina" 
+                    [(ngModel)]="employeeService.selectedEmployee.office"
+                    >
+                   </div>
+
+                   <div class="form-grup">
+                    <input 
+                    type="number"
+                    name="salary" 
+                    class="form-control" 
+                    placeholder="Ingrese su salario"
+                    [(ngModel)]="employeeService.selectedEmployee.salary"
+                    >
+                   </div>
+
+                    <button class="btn btn-primary mr-2" (click)="resetForm(employeeForm)">
+                        Limpiar
+                    </button>
+
+                   <button class="btn btn-secondary">
+                       Guardar
+                   </button>
+
+                </form>
+            </div>
+        </div>  
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Posicion</th>
+                    <th>Oficina</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employeeService.employees">
+                    <td>{{ employee.name }}</td> 
+                    <td>{{ employee.position}}</td>
+                    <td>{{employee.office}}</td>  
+                    <td>
+                        <button class="btn btn-secondary btn-sm" (click)="editEmployee(employee)">
+                            <i>Editar</i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee._id)">
+                            <i>Eliminar</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+###
+GET  http://localhost:4000/api/employees
+
+###
+POST  http://localhost:4000/api/employees
+Content-Type: application/json
+
+{
+    "name":"Ryan Ray",
+    "position": "Snr. Developer",
+    "office": "Ecuador",
+    "salary": "22000"
+}
+###
+GET http://localhost:4000/api/employees/61462505af9223bb4c71f2d7
+
+###
+PUT http://localhost:4000/api/employees/61462505af9223bb4c71f2d7
+
+Content-Type: application/json
+{
+    "salary": 1000000
+}
+
+###
+DELETE http://localhost:4000/api/employees/61462506af9223bb4c71f2d9
